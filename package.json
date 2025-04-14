@@ -2,6 +2,7 @@
   "name": "dvla-cars-project",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://car-garage-bay.vercel.app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -10,8 +10,8 @@ import {
   FaLeaf,
   FaRoad,
   FaFileAlt,
-  FaExclamationTriangle,
 } from "react-icons/fa";
+import Error from "./Error";
 
 function CarDetails() {
   const { registrationNumber } = useParams();
@@ -39,21 +39,8 @@ function CarDetails() {
   if (error) {
     return (
       <div className="min-h-screen min-w-screen p-4">
-        <div className="max-w-4xl mx-auto bg-red-50 border-l-4 border-red-500 p-4 rounded">
-          <div className="flex items-center">
-            <FaExclamationTriangle className="text-red-500 text-xl mr-3" />
-            <div>
-              <h3 className="text-red-800 font-medium text-lg">Error</h3>
-              {error &&
-                Array.isArray(error) &&
-                error.map((err, i) => (
-                  <p key={i} className="text-red-700">
-                    {err.title} {err.code}: {err.detail}
-                  </p>
-                ))}
-              <p className="text-gray-600 mt-2 text-sm">Please try again.</p>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto">
+          <Error error={error} />
         </div>
       </div>
     );
@@ -97,7 +84,9 @@ function CarDetails() {
         <DetailCard
           icon={<FaWeight className="text-yellow-500" />}
           title="Revenue Weight"
-          value={data && data.revenueWeight ? `${data.revenueWeight} kg` : "N/A"}
+          value={
+            data && data.revenueWeight ? `${data.revenueWeight} kg` : "N/A"
+          }
         />
         <DetailCard
           icon={<FaLeaf className="text-green-600" />}
