@@ -13,7 +13,6 @@ function App() {
         <Route path="/car/:registrationNumber" component={CarDetails} />
       </Switch>
       <Analytics />
-      <SpeedInsights />
     </Router>
   );
 }
