@@ -1,9 +1,12 @@
 import { defineConfig } from "vite";
 import dotenv from "dotenv";
+import preact from "@preact/preset-vite";
 
 dotenv.config();
 
 export default defineConfig({
+  plugins:[preact()],
+  base:"car-garage",
   server: {
     proxy: {
       "/api": {
