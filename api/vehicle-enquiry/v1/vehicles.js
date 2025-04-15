@@ -7,6 +7,8 @@ export default async function handler(req, res) {
   const { registrationNumber } = req.body;
 
   // Forward the request to the real API
+  console.log("Received registration number:", registrationNumber);
+
   console.log(process.env.VITE_API_URL);
   const apiRes = await fetch(process.env.VITE_API_URL, {
     method: "POST",
@@ -16,7 +18,7 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({ registrationNumber }),
   });
-  console.log("API Response:", apiRes.status, await apiRes.json());
   const data = await apiRes.json();
+  console.log("API response:", data);
   res.status(apiRes.status).json(data);
 }
