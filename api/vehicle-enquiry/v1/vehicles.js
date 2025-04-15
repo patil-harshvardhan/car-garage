@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({ registrationNumber }),
   });
-
+  console.log("API Response:", apiRes.status, await apiRes.json());
   const data = await apiRes.json();
   res.status(apiRes.status).json(data);
 }
