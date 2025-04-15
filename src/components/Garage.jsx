@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useFetchRegistration from "./hooks/useFetchRegistration";
 import Error from "./Error";
 import { FaPlus, FaTrash, FaCheck, FaInfoCircle, FaCar } from "react-icons/fa";
+import Loader from "./Loader";
 
 function Garage() {
   const [vehicles, setVehicles] = useState(
@@ -117,12 +118,7 @@ function Garage() {
         </div>
 
         {loading && (
-          <div className="flex justify-center items-center p-4 mb-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-            <span className="ml-2 text-gray-600">
-              Verifying registration...
-            </span>
-          </div>
+          <Loader/>
         )}
 
         {error && <Error error={error} />}
