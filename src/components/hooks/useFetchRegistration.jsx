@@ -6,7 +6,7 @@ export default function useFetchRegistration() {
   const [error, setError] = useState(null);
 
   const fetchCarDetails = async (registrationNumber) => {
-    console.log("Fetching car details for:", registrationNumber);
+    setLoading(true);
     try {
       const res = await fetch("/api/vehicle-enquiry/v1/vehicles", {
         method: "POST",

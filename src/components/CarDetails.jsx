@@ -12,6 +12,7 @@ import {
   FaFileAlt,
 } from "react-icons/fa";
 import Error from "./Error";
+import Loader from "./Loader";
 
 function CarDetails() {
   const { registrationNumber } = useParams();
@@ -25,15 +26,10 @@ function CarDetails() {
     fetchCarDetails(registrationNumber);
   }, [registrationNumber]);
 
-  if (loading) {
+  if (loading){
     return (
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-8 text-center">
-        <div className="animate-pulse flex flex-col items-center">
-          <div className="h-12 w-12 rounded-full bg-blue-200 mb-4"></div>
-          <p className="text-gray-500 text-xl">Loading car details...</p>
-        </div>
-      </div>
-    );
+      <Loader/>
+    )
   }
 
   if (error) {
