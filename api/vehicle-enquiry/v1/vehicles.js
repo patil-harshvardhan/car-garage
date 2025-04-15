@@ -1,5 +1,5 @@
 export async function POST(req) {
-  const body = await request.json();
+  const body = await req.json();
   const { registrationNumber } = body;
 
   // Forward the request to the real API
@@ -22,5 +22,5 @@ export async function POST(req) {
       "Content-Type": "application/json",
     },
   });
-  
+
 }
