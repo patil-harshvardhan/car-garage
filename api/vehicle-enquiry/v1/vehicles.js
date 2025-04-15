@@ -1,10 +1,6 @@
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    res.status(405).json({ error: "Method not allowed" });
-    return;
-  }
-
-  const { registrationNumber } = req.body;
+export async function POST(req) {
+  const body = await request.json();
+  const { registrationNumber } = body;
 
   // Forward the request to the real API
   console.log("Received registration number:", registrationNumber);
@@ -20,5 +16,11 @@ export default async function handler(req, res) {
   });
   const data = await apiRes.json();
   console.log("API response:", data);
-  res.status(apiRes.status).json(data);
+  return new Response(JSON.stringify(data), {
+    status: apiRes.status,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  
 }
