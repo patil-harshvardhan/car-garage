@@ -13,10 +13,11 @@
 2. Created a route for CarDetails.jsx
 3. Fixed Garage.jsx and CarDetails.jsx
 4. Styled neatly and mobile friendly
-5. CI/CD with vercel and github
+5. CI/CD with vercel and github (Preview on Pull request, Automatic deployments from main)
 6. Save to localstorage the vaild and verified cars
 7. Error displaying and error handeling 
 8. Proxy on local dev and the vercel deployment uses serveless function to get DVLA data.
+9. Custom hook to get DVLA data.
 
 ## Running the project 
 
